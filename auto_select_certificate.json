@@ -1,0 +1,5 @@
+{
+  "AutoSelectCertificateForUrls": [
+    "{\"pattern\":\"*\",\"filter\":{\"SUBJECT\":\" {\"CN\": \"Client Certificate for core.test.kaymera.com\"}}"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://kontroller-stb.kaymera.com",
+  "superAdminUsername": "admin@kaymera.com",
+  "superAdminPassword": "password"
+}
