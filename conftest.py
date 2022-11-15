@@ -14,7 +14,8 @@ def setup(request):
     # -------------------Your connection is not private---------------------------
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
+    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
+    driver = webdriver.Chrome(executable_path="/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver")
     # --------------------------------------------------------------------------
 
     # -------------------Your connection is not private---------------------------
