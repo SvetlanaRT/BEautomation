@@ -3,6 +3,7 @@ import json
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 
 @pytest.fixture(autouse=True)
@@ -13,8 +14,13 @@ def setup(request):
     # -------------------Your connection is not private---------------------------
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
+   
+    s = Service(/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver)
+    driver = webdriver.Chrome(service=s,chrome_options=options )
+    
+    
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver",chrome_options=options)
+    #driver = webdriver.Chrome(executable_path="/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
     # -------------------Your connection is not private---------------------------
