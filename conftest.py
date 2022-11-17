@@ -15,7 +15,7 @@ def setup(request):
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
    
-    s = Service(/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver)
+    s = Service("/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver")
     driver = webdriver.Chrome(service=s,chrome_options=options )
     
     
