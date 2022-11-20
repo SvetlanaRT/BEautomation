@@ -5,7 +5,6 @@ autokey==0.96.0
 backcall==0.2.0
 bcrypt==3.1.7
 blinker==1.4
-Brlapi==0.7.0
 category-encoders==2.5.1.post0
 certifi==2022.6.15.1
 chardet==3.0.4
