@@ -14,13 +14,13 @@ def setup(request):
     # -------------------Your connection is not private---------------------------
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
-   #----NOT USEFULL
-    # s = Service("/home/svetlana.kalchenko/PycharmProjects/BEautomat/chromedriver")
-    # driver = webdriver.Chrome(service=s,chrome_options=options )
-    #--------------
+    options.binary_location=r"C:\Users\libin.thomas\AppData\Local\Google\Chrome\Application\chrome.exe"
+    options.add_argument('--start-maximized')
+    options.add_argument('--headless')
+
     
     #driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="https://github.com/SvetlanaRT/BEautomation/blob/main/chromedriver",chrome_options=options)
+    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
     # -------------------Your connection is not private---------------------------
