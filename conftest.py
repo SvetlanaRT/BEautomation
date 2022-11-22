@@ -14,7 +14,7 @@ def setup(request):
     # -------------------Your connection is not private---------------------------
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
-    options.binary_location=r"C:\Users\libin.thomas\AppData\Local\Google\Chrome\Application\chrome.exe"
+    options.binary_location=r"/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver"
     options.add_argument('--start-maximized')
     options.add_argument('--headless')
 
