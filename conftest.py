@@ -22,8 +22,6 @@ def setup(request):
 
     # driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver", chrome_options=options)
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
 
     # -------------------Your connection is not private---------------------------
     options = Options()
