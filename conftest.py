@@ -12,16 +12,16 @@ def setup(request):
         conf = json.load(json_file)
 
     # -------------------Your connection is not private---------------------------
-    options = Options()
-    options.set_capability("acceptInsecureCerts", True)
-
-    options = Options()
+    # options = Options()
+    options = webdriver.ChromeOptions()
     options.set_capability("acceptInsecureCerts", True)
     options.binary_location = "/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver"
+    driver = webdriver.Chrome(chrome_options=options)
     options.add_argument('--start-maximized')
     options.add_argument('--headless')
 
-    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver", chrome_options=options)
+    # driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver", chrome_options=options)
+    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
 
@@ -30,7 +30,6 @@ def setup(request):
     options.set_capability("acceptInsecureCerts", True)
     options.set_capability("ssl.client_certs.h2_coalescing_hosts", 'test.kaymera.com')
     options.set_capability("prompt_on_multiple_matching_certificates", True)
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     # --------------------------------------------------------------------------
 
     setup.domain = conf['baseUrl']
