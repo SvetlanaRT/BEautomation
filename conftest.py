@@ -24,7 +24,7 @@ def setup(request):
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
 
     # -------------------Your connection is not private---------------------------
-    options = Options()
+    #options = Options()
     options.set_capability("acceptInsecureCerts", True)
     options.set_capability("ssl.client_certs.h2_coalescing_hosts", 'test.kaymera.com')
     options.set_capability("prompt_on_multiple_matching_certificates", True)
