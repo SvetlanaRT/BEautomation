@@ -14,13 +14,13 @@ def setup(request):
     # -------------------Your connection is not private---------------------------
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
-    options.binary_location=r"/var/lib/jenkins/workspace/BEautomation-webhook"
+    options.binary_location="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver"
     options.add_argument('--start-maximized')
     options.add_argument('--headless')
 
     
     #driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/var/lib/jenkins/workspace/BEautomation-webhook",chrome_options=options)
+    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
     # -------------------Your connection is not private---------------------------
