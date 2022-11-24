@@ -16,8 +16,8 @@ def setup(request):
     options.set_capability("acceptInsecureCerts", True)
     options.set_capability("ssl.client_certs.h2_coalescing_hosts", 'test.kaymera.com')
     options.set_capability("prompt_on_multiple_matching_certificates", True)
-    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
+     #driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
     setup.domain = conf['baseUrl']
