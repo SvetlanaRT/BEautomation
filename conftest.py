@@ -15,7 +15,7 @@ def setup(request):
     options = Options()
     options.set_capability("acceptInsecureCerts", True)
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
+    driver = webdriver.Chrome(executable_path="/var/lib/jenkins/workspace/BEautomation-webhook/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
 
