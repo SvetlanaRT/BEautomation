@@ -1,9 +1,6 @@
-
 import conftest
 from util import *
 from utilities.BaseClass import BaseClass
-
-# try to upload to Github
 
 class TestHomePage(BaseClass):
 
@@ -13,38 +10,34 @@ class TestHomePage(BaseClass):
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "km-welcome-promo")))
 
-        self.log("getting current url")
-
         current_url = driver.current_url
         assert current_url == f'{conftest.setup.domain}/assets/welcome.html'
 
-    def test_login(self):
+    def test_dashboard(self):
         driver = self.driver
 
         UtilClass.perform_login(driver)  # call a function from util
-
-        element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
-        element = element
-
-        self.log("getting current url")
-
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html/body/ui-view/ui-view/div/div[2]/div/div[2]/div[5]/div/div/div/div[1]/h6/span")))
         current_url = driver.current_url
         assert current_url == f'{conftest.setup.domain}/assets/index.html#/dashboard/system'
+
+
 
     def test_devices(self):
         driver = self.driver
         UtilClass.perform_login(driver)  # call a function from util
+        try:
+            UtilClass.devices_page(driver)  # call a function from util
 
-        UtilClass.devices_page(driver)  # call a function from util
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_all_elements_located((By.CLASS_NAME, "km-outlet-toolbar")))
 
-        element = WebDriverWait(driver, 10).until(
-            EC.presence_of_all_elements_located((By.CLASS_NAME, "km-outlet-toolbar")))
-        element = element
-        self.log("getting current url")
+            Current_URL = driver.current_url
 
-        Current_URL = driver.current_url
+            assert Current_URL == f'{conftest.setup.domain}/assets/index.html#/devices/list/org/57d686cce4b046fcd03efcc6/detailed'
+        except Exception as e:
+            self.log_error(e)  # call function from BaseClass utilities
 
-        assert Current_URL == f'{conftest.setup.domain}/assets/index.html#/devices/list/org/57d686cce4b046fcd03efcc6/detailed'
 
     def test_add_device_drop_down_menu(self):
         driver = self.driver
@@ -142,11 +135,13 @@ class TestHomePage(BaseClass):
     # def test_DeleteByEmail(self):
     #     driver = self.driver
     #
+    #     UtilClass.toggle_developer_tools() # call function from ...
+    #
     #     checkBox=driver.find_element(By.XPATH,"//*[@id='edit-devices']/ui-view/div[1]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/div[2]/i")
     #     checkBox.click()
-
-    # bulk_Change=driver.find_element(By.XPATH,"//*[@id='edit-devices']/ui-view/div[1]/div[2]/div/div[1]/span[2]/ksc-bulk-operations/button")
-    # bulk_Change.click()
+    #
+    #     bulk_Change=driver.find_element(By.XPATH,"//*[@id='edit-devices']/ui-view/div[1]/div[2]/div/div[1]/span[2]/ksc-bulk-operations/button")
+    #     bulk_Change.click()
 
     def test_reset_SIM(self):
         driver = self.driver
@@ -213,8 +208,9 @@ class TestHomePage(BaseClass):
         editButton = driver.find_element(By.XPATH, "//*[@id='device-details']/div/div[1]/span[2]/div/button[2]")
         editButton.click()
 
-        lastNameInput = driver.find_element(By.XPATH, "//input[@id='lastname']")
-        lastNameInput.clear()
+        lastNameInput =WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"//input[@id='lastname']")))
+        lastNameInput.send_keys(u'\ue009' + u'\ue003')
+
         lastNameInput.send_keys("updatedBy_Postman")
 
         saveButton = driver.find_element(By.XPATH, "/html/body/div[7]/div/div/div[3]/button[1]")
@@ -223,6 +219,7 @@ class TestHomePage(BaseClass):
         fullName = driver.find_element(By.XPATH,
                                        "//*[@id='device-details']/div/div[2]/div/div/div[1]/div[2]/label[1]/span")
         updatedName = fullName.text
+
 
         try:
             assert updatedName == "Bond updatedBy_Postman"

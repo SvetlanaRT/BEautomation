@@ -1,8 +1,8 @@
 import json
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -17,6 +17,7 @@ def setup(request):
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
+
 
     setup.domain = conf['baseUrl']
     url = f'{setup.domain}/assets/welcome.html'

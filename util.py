@@ -40,12 +40,10 @@ class UtilClass(BaseClass):
         action = ActionChains(driver)
         devicesButton = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Devices")))
         devicesButton = devicesButton
-        # devicesButton = driver.find_element(By.LINK_TEXT, "Devices")
         action.move_to_element(devicesButton).click().perform()
 
         try:
-            element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, "edit-search")))
-            element = element
+            WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, "edit-search")))
         except TimeoutException:
             print("Error! devices_page")
 
