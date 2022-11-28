@@ -12,10 +12,18 @@ def setup(request):
         conf = json.load(json_file)
 
     # -------------------Your connection is not private---------------------------
+    
     options = Options()
+    
+    #driver solution------------------------------------------------------------
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument('--headless')
+    #----------------------------------------------------------------------------
+    
     options.set_capability("acceptInsecureCerts", True)
     # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/var/lib/jenkins/workspace/BEautomation-webhook/chromedriver",chrome_options=options)
+    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
     # --------------------------------------------------------------------------
 
 
