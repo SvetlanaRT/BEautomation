@@ -21,6 +21,7 @@ def setup(request):
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     # --------------------------------------------------------------------------
 
+
     setup.domain = conf['baseUrl']
     url = f'{setup.domain}/assets/welcome.html'
     driver.get(url)
