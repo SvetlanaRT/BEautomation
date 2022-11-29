@@ -3,8 +3,6 @@ import conftest
 from util import *
 from utilities.BaseClass import BaseClass
 
-# try to upload to Github
-
 class TestHomePage(BaseClass):
 
     def test_login_page(self):
@@ -23,8 +21,8 @@ class TestHomePage(BaseClass):
 
         UtilClass.perform_login(driver)  # call a function from util
 
-        element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
-        element = element
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
+
 
         self.log("getting current url")
 
