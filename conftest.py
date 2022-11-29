@@ -1,8 +1,8 @@
 import json
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -11,13 +11,14 @@ def setup(request):
     with open('conf/conf.json') as json_file:
         conf = json.load(json_file)
 
-    # -------------------Your connection is not private---------------------------
+    # ------------------------------------------------------------------------
     options = Options()
-    options.set_capability("acceptInsecureCerts", True)
-    options.set_capability("ssl.client_certs.h2_coalescing_hosts", 'test.kaymera.com')
-    options.set_capability("prompt_on_multiple_matching_certificates", True)
-    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
-    driver = webdriver.Chrome(executable_path="/home/svetlanakalchenko/PycharmProjects/BEautomation/chromedriver",chrome_options=options)
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--crash-dumps-dir=/tmp')
+    options.add_argument("--start-maximized")
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
     # --------------------------------------------------------------------------
 
     setup.domain = conf['baseUrl']
@@ -30,9 +31,3 @@ def setup(request):
 
     yield
     driver.quit()
-
-
-
-
-
-
