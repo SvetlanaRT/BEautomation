@@ -2,6 +2,8 @@ import conftest
 from util import *
 from utilities.BaseClass import BaseClass
 
+# try to upload to Github
+
 class TestHomePage(BaseClass):
 
     def test_login_page(self):
@@ -18,6 +20,12 @@ class TestHomePage(BaseClass):
 
         UtilClass.perform_login(driver)  # call a function from util
         WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html/body/ui-view/ui-view/div/div[2]/div/div[2]/div[5]/div/div/div/div[1]/h6/span")))
+
+        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
+
+
+        self.log("getting current url")
+
         current_url = driver.current_url
         assert current_url == f'{conftest.setup.domain}/assets/index.html#/dashboard/system'
 
