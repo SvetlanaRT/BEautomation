@@ -10,7 +10,7 @@ class TestHomePage(BaseClass):
 
         driver = self.driver
 
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "km-welcome-promo")))
+        # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "km-welcome-promo")))
 
         current_url = driver.current_url
         assert current_url == f'{conftest.setup.domain}/assets/welcome.html'
@@ -19,12 +19,9 @@ class TestHomePage(BaseClass):
         driver = self.driver
 
         UtilClass.perform_login(driver)  # call a function from util
-        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html/body/ui-view/ui-view/div/div[2]/div/div[2]/div[5]/div/div/div/div[1]/h6/span")))
-
-        WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
-
-
-        self.log("getting current url")
+        # WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html/body/ui-view/ui-view/div/div[2]/div/div[2]/div[5]/div/div/div/div[1]/h6/span")))
+        # WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
+        # self.log("getting current url")
 
         current_url = driver.current_url
         assert current_url == f'{conftest.setup.domain}/assets/index.html#/dashboard/system'
@@ -34,17 +31,16 @@ class TestHomePage(BaseClass):
     def test_devices(self):
         driver = self.driver
         UtilClass.perform_login(driver)  # call a function from util
-        try:
-            UtilClass.devices_page(driver)  # call a function from util
 
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_all_elements_located((By.CLASS_NAME, "km-outlet-toolbar")))
+        UtilClass.devices_page(driver)  # call a function from util
 
-            Current_URL = driver.current_url
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.CLASS_NAME, "km-outlet-toolbar")))
 
-            assert Current_URL == f'{conftest.setup.domain}/assets/index.html#/devices/list/org/57d686cce4b046fcd03efcc6/detailed'
-        except Exception as e:
-            self.log_error(e)  # call function from BaseClass utilities
+        Current_URL = driver.current_url
+
+        assert Current_URL == f'{conftest.setup.domain}/assets/index.html#/devices/list/org/549c19b4892bc759e9647adc/detailed'
+
 
 
     def test_add_device_drop_down_menu(self):
