@@ -19,6 +19,8 @@ def setup(request):
     options.add_argument('--crash-dumps-dir=/tmp')
     options.add_argument("--start-maximized")
     options.add_argument("--incognito")
+    # ------------------------------------------------------------------------
+
     options.set_capability("acceptInsecureCerts", True)
 
 

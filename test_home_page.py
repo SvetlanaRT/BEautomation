@@ -2,7 +2,7 @@ import conftest
 from util import *
 from utilities.BaseClass import BaseClass
 
-# try to upload to Github
+# try to upload to Bautomation-Coregcp
 
 class TestHomePage(BaseClass):
 
