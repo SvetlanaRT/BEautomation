@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://core.coregcp.kaymera.com",
+  "baseUrl": "https://core.test.kaymera.com",
   "superAdminUsername": "admin@kaymera.com",
   "superAdminPassword": "password"
 }
