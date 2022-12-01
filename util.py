@@ -1,3 +1,4 @@
+import time
 
 from selenium.common import TimeoutException
 from selenium.webdriver import ActionChains
@@ -10,7 +11,9 @@ from utilities.BaseClass import BaseClass
 class UtilClass(BaseClass):
 
     def perform_login(driver):
-        email = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "email")))
+        # email = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "email")))
+        time.sleep(10)
+        email=driver.find_element(By.ID, "email")
         email.send_keys("admin@kaymera.com")
         password = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "password")))
         password.send_keys("password")
@@ -20,6 +23,7 @@ class UtilClass(BaseClass):
         driver.find_element(By.ID, "accessCode").send_keys("")
         sendAccessCode = driver.find_element(By.ID, "submit")
         sendAccessCode.click()
+
 
     # TODO test of the function
     def perform_logout(driver):
