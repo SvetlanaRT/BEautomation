@@ -15,7 +15,8 @@ class UtilClass(BaseClass):
         time.sleep(10)
         email=driver.find_element(By.ID, "email")
         email.send_keys("admin@kaymera.com")
-        password = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "password")))
+        time.sleep(10)
+        password = driver.find_element((By.ID, "password"))
         password.send_keys("password")
 
         sendAccessCode = driver.find_element(By.ID, "submit")
