@@ -17,7 +17,6 @@ class TestHomePage(BaseClass):
 
     def test_dashboard(self):
         driver = self.driver
-
         UtilClass.perform_login(driver)  # call a function from util
         # WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html/body/ui-view/ui-view/div/div[2]/div/div[2]/div[5]/div/div/div/div[1]/h6/span")))
         # WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.LINK_TEXT, "Dashboard")))
