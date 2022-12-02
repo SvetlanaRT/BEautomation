@@ -13,7 +13,7 @@ def setup(request):
         conf = json.load(json_file)
         #------------------------------------------------------------------------
         options = Options()
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         options.add_argument("--disable-gpu")
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
@@ -26,12 +26,9 @@ def setup(request):
         #------------------------------------------------------------------------
         options.set_capability("acceptInsecureCerts", True)
 
-        desired_capabilities = DesiredCapabilities.CHROME.copy()
-        desired_capabilities['acceptInsecureCerts'] = True
-        driver = webdriver.Chrome(desired_capabilities=desired_capabilities)
         #------------------------------------------------------------------------
 
-        # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
+        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=options)
         # --------------------------------------------------------------------------
         setup.domain = conf['baseUrl']
         url = f'{setup.domain}/assets/welcome.html'
