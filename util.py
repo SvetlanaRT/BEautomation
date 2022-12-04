@@ -11,28 +11,16 @@ from utilities.BaseClass import BaseClass
 class UtilClass(BaseClass):
 
     def perform_login(driver):
-        # email = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "email")))
-        # email=WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@id='email']")))
-        email= driver.find_element(By.ID,'email')
+        email = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "email")))
         email.send_keys("admin@kaymera.com")
-
-        time.sleep(10)
-        # password=WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@id='password']")))
-        password = driver.find_element(By.ID,'password')
+        password = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "password")))
         password.send_keys("password")
 
-        # sendAccessCode = driver.find_element(By.ID, "submit")
-        sendAccessCode=WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//button[@id='submit']")))
+        sendAccessCode = driver.find_element(By.ID, "submit")
         sendAccessCode.click()
-
-        # driver.find_element(By.ID, "accessCode").send_keys("")
-        sendAccessCode=WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@id='accessCode']")))
-        sendAccessCode.send_keys("")
-
-        # submit = driver.find_element(By.ID, "submit")
-        submit=WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//button[@id='submit']")))
-        submit.click()
-
+        driver.find_element(By.ID, "accessCode").send_keys("")
+        sendAccessCode = driver.find_element(By.ID, "submit")
+        sendAccessCode.click()
 
     def perform_logout(driver):
         userButton = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "userSettingsButton")))
